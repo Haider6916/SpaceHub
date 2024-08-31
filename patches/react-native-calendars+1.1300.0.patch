@@ -1,0 +1,37 @@
+diff --git a/node_modules/react-native-calendars/src/calendar/day/marking/index.js b/node_modules/react-native-calendars/src/calendar/day/marking/index.js
+index 338c1e5..cac5a36 100644
+--- a/node_modules/react-native-calendars/src/calendar/day/marking/index.js
++++ b/node_modules/react-native-calendars/src/calendar/day/marking/index.js
+@@ -65,7 +65,31 @@ const Marking = (props) => {
+             }
+             color = selected && item.selectedDotColor ? item.selectedDotColor : item.color;
+         }
+-        return <Dot {...dotProps} key={key} color={color}/>;
++        return (
++            <View style={{ marginRight: 2}}>
++            {/* <Dot {...dotProps} key={key} color={color}/> */}
++               <View
++                 style={{
++                   backgroundColor: color,
++                   height: 5,
++                   width: 5,
++                   borderRadius: 3,
++                   justifyContent:'center',
++                   alignItems:'center',
++                   marginTop:10 // Add margin to create space between the View and the next Dot
++                 }}
++               >
++                   <View  style={{
++                   backgroundColor: 'white',
++                   height: 2,
++                   width: 2,
++                   borderRadius: 1,
++                   // alignSelf: 'center', // Add margin to create space between the View and the next Dot
++                 }}/>
++                   </View>
++                  
++             </View>
++        );
+     };
+     return renderMarkingByType();
+ };
